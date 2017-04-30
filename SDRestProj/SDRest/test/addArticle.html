@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" action="http://localhost:8080/user/article" enctype="application/json" Content-Type="application/json">
+<table width="200" border="1">
+  <tr>
+    <td>Property</td>
+    <td>Value</td>
+  </tr>
+  <tr>
+    <td>articleId</td>
+    <td><input type="text" name="articleId" value="4" /></td>
+  </tr>
+  <tr>
+    <td>title</td>
+    <td><input type="text" name="title" value="标题-Title-1" /></td>
+  </tr>  <tr>
+    <td>category</td>
+    <td><input type="text" name="category" value="cat-01" /></td>
+  </tr>
+</table>
+<input type="submit" name="btnOK" value="POST"/>
+</form>
+</body>
+</html>

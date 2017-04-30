@@ -1,0 +1,50 @@
+-- 启动测试工具 WebClient.exe
+Action=http://localhost:8080/user/article  => 正文中自动得到一个新文章的json
+选择Content Type=application/json
+
+
+-- 新增文章
+POST http://localhost:8080/user/article
+>>
+{
+    "articleId": 4,
+    "title": "标题-Title-1",
+    "category": "cat-01"
+}
+
+如果新增的 {title, category}已经存在，则日志将会输出：
+
+	远程服务器返回错误: (405) 不允许的方法。
+
+
+如果提供了 "articleId": 0，实测相当于null。
+
+
+-- 查询单条记录
+GET http://localhost:8080/user/article/1
+>> (Empty)
+<< {"articleId":1,"title":"Java Concurrency","category":"Java"}
+
+
+-- 查询所有文章
+GET http://localhost:8080/user/articles
+>> （空）
+<<
+[{
+		"articleId" : 1,
+		"title" : "Java Concurrency",
+		"category" : "Java"
+	}, {
+		"articleId" : 2,
+		"title" : "Hibernate HQL ",
+		"category" : "Hibernate"
+	}, {
+		"articleId" : 3,
+		"title" : "Spring MVC with Hibernate",
+		"category" : "Spring"
+	}, {
+		"articleId" : 4,
+		"title" : "标题-Title-1",
+		"category" : "cat-01"
+	}
+]
